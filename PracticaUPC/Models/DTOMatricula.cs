@@ -1,6 +1,6 @@
 ﻿namespace PracticaUPC.Models
 {
-    public class DTOMatricula
+    public class DTOMatri
     {
         public DTOHeader DTOHeader { get; set; }
         public ListaDTODetMatriculaOBJ ListaDTODetMatriculaOBJ { get; set; }
@@ -13,8 +13,8 @@
 
     public class ListaDTODetMatriculaOBJ
     {
-        public Matricula DTODetMatriculaCab { get; set; }
-        public List<DetMatricula> ListaDTODetMatriculaDet { get; set; }
+        public DTOMatricula DTODetMatriculaCab { get; set; }
+        public List<DTODetMatricula> ListaDTODetMatriculaDet { get; set; }
 
     }
     public class DTOHeader

@@ -22,8 +22,12 @@ public partial class ModelContext : DbContext
         #region Squema
         builder.Entity<Prueba>().ToTable("PRUEBA").HasNoKey();
         builder.Entity<Matricula>().ToTable("MATRICULA");
-        builder.Entity<DetMatricula>().ToTable("DETMATRICULA").HasNoKey();
+        builder.Entity<DetMatricula>().ToTable("DETMATRICULA").HasKey( t => new {t.IDMATRICULA , t.CODLINEANEGOCIO , t.CODCURSO });
 
+        builder.Entity<Matricula>()
+            .HasMany(m => m.DetMatriculas)
+            .WithOne(d => d.Matricula)
+            .HasForeignKey(d => d.IDMATRICULA);
         #endregion
     }
     public DbSet<Prueba> Pruebas { get; set; }
