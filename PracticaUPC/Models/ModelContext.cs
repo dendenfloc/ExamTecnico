@@ -28,6 +28,7 @@ public partial class ModelContext : DbContext
             .HasMany(m => m.DetMatriculas)
             .WithOne(d => d.Matricula)
             .HasForeignKey(d => d.IDMATRICULA);
+
         builder.Entity<DetMatricula>()
          .HasOne(d => d.Curso)
          .WithMany()
