@@ -44,7 +44,7 @@ namespace PracticaUPC.Controllers
                             {
                                 DTODetMatriculaCab = new DTOMatricula
                                 {
-                                    IDMATRICULA = item.Matricula.IDMATRICULA,
+                                    IDMATRICULA = item.Matricula.IDMATRICULA.Value,
                                     CODLINEANEGOCIO = item.Matricula.CODLINEANEGOCIO,
                                     CODMODALEST = item.Matricula.CODMODALEST,
                                     CODPERIODO = item.Matricula.CODPERIODO,
@@ -76,31 +76,29 @@ namespace PracticaUPC.Controllers
             }
         }
 
-        //[HttpPost("Guardar")]
-        //public async Task<ActionResult<dtomatr>> Guardar([FromBody] TBT_SEDES tbt_SEDES)
-        //{
-        //    try
-        //    {
-        //        _context.TBT_SEDES.Add(tbt_SEDES);
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        if (ex.InnerException != null)
-        //        {
-        //            if (ex.InnerException.Message.Contains(UtilHelper.GetExceptionTruncate()))
-        //            {
-        //                tbt_SEDES.Error = UtilHelper.GetMessageErrorTruncate();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            tbt_SEDES.Error = UtilHelper.GetExceptionDeleteOtros();
-        //        }
-        //        return tbt_SEDES;
-        //    }
+        [HttpPost("Guardar")]
+        public async Task<ActionResult<DTOMatricula>> Guardar([FromBody] DTOMatricula dTOMatricula)
+        {
+            try
+            {
+                var model = new Matricula();
+                model.CODLINEANEGOCIO = dTOMatricula.CODLINEANEGOCIO;
+                model.CODMODALEST = dTOMatricula.CODMODALEST;
+                model.CODPERIODO = dTOMatricula.CODPERIODO;
+                model.CODALUMNO = dTOMatricula.CODALUMNO;
+                model.USUARIOCREADOR = dTOMatricula.USUARIOCREADOR;
+                model.FECHACREACION = dTOMatricula.FECHACREACION;
+                _context.Matriculas.Add(model);
+                await _context.SaveChangesAsync();
 
-        //    return Ok(tbt_SEDES);
-        //}
+                dTOMatricula.IDMATRICULA = model.IDMATRICULA.Value;
+            }
+            catch (Exception ex)
+            {
+                return dTOMatricula;
+            }
+
+            return Ok(dTOMatricula);
+        }
     }
 }

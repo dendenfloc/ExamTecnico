@@ -5,7 +5,7 @@ namespace PracticaUPC.Models
     public class Matricula
     {
         [Key]
-        public decimal IDMATRICULA { get; set; }
+        public decimal? IDMATRICULA { get; set; }
         public string? CODLINEANEGOCIO { get; set; }
         public string? CODMODALEST { get; set; }
         public string? CODPERIODO { get; set; }
