@@ -18,7 +18,6 @@ namespace PracticaUPC.Models
 
         public virtual ICollection<DetMatricula>? DetMatriculas { get; set; }
 
-
     }
 
     public class DTOMatricula
@@ -30,8 +29,5 @@ namespace PracticaUPC.Models
         public string? CODALUMNO { get; set; }
         public string? USUARIOCREADOR { get; set; }
         public DateTime? FECHACREACION { get; set; }
-        public string? USUARIOMODIFICACION { get; set; }
-
-        public DateTime? FECHAMODIFICACION { get; set; }
     }
 }
