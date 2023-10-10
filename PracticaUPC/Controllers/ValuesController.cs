@@ -64,47 +64,7 @@ namespace PracticaUPC.Controllers
                                     .ToList()
                             })
                             .ToList();
-                // Ahora 'matriculaWithDetails' contiene Matricula y los detalles con Curso asociado.
-
-
-                // Ahora 'matriculaWithDetails' contiene Matricula y los detalles con Curso asociado.
-
-                ////ListaDTODetMatriculaOBJ ListaDTODetMatriculaOBJ = new ListaDTODetMatriculaOBJ();
-                //var dtoMatricula = _context.Matriculas
-                //    .Where(t => t.IDMATRICULA.Equals(idmatri))
-                //    .Include(t => t.DetMatriculas)
-                //    .Include(t => t.Curso)
-                //    .Select(m => new ListaDTODetMatriculaOBJ
-                //    {
-                //        DTODetMatriculaCab = new DTOMatricula
-                //        {
-                //            IDMATRICULA = m.IDMATRICULA,
-                //            CODLINEANEGOCIO = m.CODLINEANEGOCIO,
-                //            CODMODALEST = m.CODMODALEST,
-                //            CODPERIODO = m.CODPERIODO,
-                //            CODALUMNO = m.CODALUMNO,
-                //            USUARIOCREADOR = m.USUARIOCREADOR,
-                //            FECHACREACION = m.FECHACREACION
-                //        },
-                //        ListaDTODetMatriculaDet = m.DetMatriculas.Select(d => new DTODetMatricula
-                //        {
-                //            CODPRODUCTO = d.CODPRODUCTO,
-                //            SECCION = d.SECCION,
-                //            GRUPO = d.GRUPO
-                //        }).ToList()
-                //    })
-                //    .FirstOrDefault();
-
-
-
-                //var matricula = _context.Matriculas.Include(t=>t.DetMatriculas).Where(t=> t.IDMATRICULA.Equals(idmatri)).FirstOrDefault();
-                //ListaDTODetMatriculaOBJ.DTODetMatriculaCab = matricula;
-
                 oDTOHeader.CodigoRetorno = "Correcto";
-
-                ////var detalles = _context.DetMatriculas.Where(t => t.IDMATRICULA.Equals(idmatri)).ToList();
-                //ListaDTODetMatriculaOBJ.ListaDTODetMatriculaDet = result;
-
                 oRespuesta.ListaDTODetMatriculaOBJ = result.FirstOrDefault();
                 oRespuesta.DTOHeader = oDTOHeader;
 
